@@ -45,6 +45,8 @@ namespace DataStructures
             }
         }
 
+        public T this[int index] => GetAtIndex(index);
+
         public void Add(T value)
         {
             Node n = new Node() { Data = value };
@@ -150,6 +152,26 @@ namespace DataStructures
                 return target.Data;
             }
 
+        }
+
+        public void Swap(int x, int y)
+        {
+            Node target = root;
+            int n = -1;
+            while (n != x)
+            {
+                target = target.Next;
+                n++;
+            }
+            Node target2 = root;
+            int m = -1;
+            while (m != y)
+            {
+                target2 = target2.Next;
+                m++;
+            }
+
+            (target.Next, target2.Next) = (target2.Next, target.Next);
         }
         //foreach
         //to array
