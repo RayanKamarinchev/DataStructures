@@ -118,7 +118,7 @@ namespace DataStructures
 
             int n = 0;
             Node target = root;
-            while (target.Next != null)
+            while (target != null)
             {
                 if (EqualityComparer<T>.Default.Equals(target.Data, obj))
                     return n;
