@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace DataStructures
+namespace DataStructures.Trees
 {
     public class MyHeap
     {
@@ -18,12 +18,12 @@ namespace DataStructures
                 Grow();
 
             array[Count] = num;
-            BubbleUp(Count-1);
+            BubbleUp(Count - 1);
         }
 
         public void Poll()
         {
-            (array[0], array[Count-1]) = (array[Count-1], array[0]);
+            (array[0], array[Count - 1]) = (array[Count - 1], array[0]);
             array[Count - 1] = null;
             BubbleDown(0);
         }
@@ -35,7 +35,7 @@ namespace DataStructures
                 if (array[i] == num)
                 {
                     (array[i], array[Count - 1]) = (array[Count - 1], array[i]);
-                    array[Count-1]=null;
+                    array[Count - 1] = null;
                     BubbleUp(i);
                     BubbleDown(i);
                 }
@@ -44,7 +44,7 @@ namespace DataStructures
 
         private void BubbleUp(int index)
         {
-            if (index==0)
+            if (index == 0)
             {
                 return;
             }
@@ -63,23 +63,23 @@ namespace DataStructures
             {
                 return;
             }
-            int childIndex = (array[index * 2 + 1] > array[index * 2 + 2] ? index * 2 + 2 : index * 2 + 1);
+            int childIndex = array[index * 2 + 1] > array[index * 2 + 2] ? index * 2 + 2 : index * 2 + 1;
             while (array[childIndex] < array[index])
             {
                 (array[childIndex], array[index]) = (array[index], array[childIndex]);
                 index = childIndex;
-                if (index*2>Count)
+                if (index * 2 > Count)
                 {
                     return;
                 }
-                childIndex = (array[index * 2 + 1] > array[index * 2 + 2] ? index * 2 + 2 : index * 2 + 1);
+                childIndex = array[index * 2 + 1] > array[index * 2 + 2] ? index * 2 + 2 : index * 2 + 1;
             }
         }
 
         private void Grow()
         {
             int?[] array1 = array;
-            capacity = (capacity == 0 ? 1 : capacity * 2);
+            capacity = capacity == 0 ? 1 : capacity * 2;
             array = new int?[capacity];
             for (int i = 0; i < array1.Length; i++)
             {

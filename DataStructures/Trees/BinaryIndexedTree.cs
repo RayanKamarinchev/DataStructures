@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataStructures
+namespace DataStructures.Trees
 {
     public class BinaryIndexedTree
     {
@@ -34,7 +34,7 @@ namespace DataStructures
 
                 // Move index to parent node in 
                 // getSum View 
-                index -= index & (-index);
+                index -= index & -index;
             }
 
             return sum;
@@ -59,7 +59,7 @@ namespace DataStructures
 
                 // Update index to that of parent 
                 // in update View 
-                index += index & (-index);
+                index += index & -index;
             }
         }
 

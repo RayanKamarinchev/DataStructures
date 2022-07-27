@@ -1,4 +1,4 @@
-﻿namespace DataStructures
+﻿namespace DataStructures.Trees
 {
     public class BinaryTree
     {
@@ -26,11 +26,11 @@
 
             Node? target = root;
             Node? oldTarget = target;
-            while (target!=null)
+            while (target != null)
             {
                 oldTarget = target;
                 int result = Compare(target, num);
-                if (result==1)
+                if (result == 1)
                 {
                     target = target.Right;
                 }
@@ -75,7 +75,7 @@
                 }
                 else
                 {
-                    return new Node[2]{oldTarget, target};
+                    return new Node[2] { oldTarget, target };
                 }
             }
             throw new InvalidOperationException();
@@ -128,7 +128,7 @@
 
             Node? clonetarget = target.Right;
             Node? clonetargetParent = target;
-            while (clonetarget.Left!=null)
+            while (clonetarget.Left != null)
             {
                 clonetargetParent = clonetarget;
                 clonetarget = clonetarget.Left;
